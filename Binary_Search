@@ -1,0 +1,43 @@
+package com.practice;
+
+public class Binary_Search {
+	
+	public static void binarySearch(int Lower,int Higher,int Target,int a[],int size)
+	{
+			
+		int mid= ((Higher-Lower)/2)+Lower;
+		
+		if (Target==a[mid])
+		{
+			System.out.println("Target value is in"+mid+"th index :"+a[mid]);
+		}
+		else if (Target< a[mid] && mid!=0)
+		{
+			Higher= mid-1;
+			binarySearch(Lower,Higher,Target,a,size);
+		}
+		else if (Target> a[mid] && mid!= size)
+		{
+			Lower= mid+1;
+			
+			binarySearch(Lower,Higher,Target,a,size);
+		}
+		else if(mid==0 || mid==size)
+		{
+			System.out.println("Element not found");	
+		}
+	
+	}
+
+	public static void main(String[] args) {
+		
+		int arr[] ={1,2,3,4,5,6,7,8,9,10};
+		int L=0;
+		int n= arr.length;
+		int H=n-1;
+		int T= 12;
+		binarySearch(L,H,T,arr,n-1);
+
+	}
+
+}
